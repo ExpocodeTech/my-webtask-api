@@ -1,0 +1,19 @@
+{
+  "name": "my-webtask-api",
+  "version": "0.0.1",
+  "description": "An API Build with Webtask NodeJS y MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run create -- --watch",
+    "create": "wt create index --bundle"
+  },
+  "author": "Javier Exposito",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.5",
+    "webtask-tools": "^3.2.0"
+  }
+}
