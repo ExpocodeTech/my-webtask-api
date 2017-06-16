@@ -26,4 +26,19 @@ module.exports = (app) => {
     const idParam = req.webtaskContext.query.id;
     req.storyModel.remove({_id: idParam}, (err, removedStory) => res.json(removedStory));
   })
+
+  /**
+   * Routes for Task Database
+   */
+
+  app.get('/tasks', (req, res) => {
+      req.taskModel.find({}).sort({'created_at': -1}).exec((err, tasks) => res.json(tasks))
+  });
+
+  app.post('/tasks', (req, res) => {
+      const newTask = new req.taskModel(Object.assign({}, req.body, {created_at: Date.now()}));
+      newTask.save((err, savedTask) => {
+          res.json(savedTask)
+      })
+  })
 }
